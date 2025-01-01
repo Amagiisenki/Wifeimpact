@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black and Sleek UI</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background: #444;
+      border-bottom: 2px solid #333;
+    }
+    .header .logo {
+      height: 40px;
+    }
+    .header h1 {
+      margin: 0;
+    }
+    .compressed-boxes {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .box {
+      flex: 1 1 calc(33.33% - 10px);
+      margin: 5px;
+      background: #222;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      border: 2px solid #333;
+      height: 300px;
+      touch-action: manipulation;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s, transform 0.6s;
+    }
+    @media (max-width: 768px) {
+      .box {
+        flex: 1 1 calc(50% - 10px);
+        height: 200px;
+      }
+    }
+    @media (max-width: 480px) {
+      .box {
+        flex: 1 1 calc(100% - 10px);
+        height: 250px;
+      }
+    }
+    .box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .box:hover img,
+    .box.active img {
+      transform: scale(1.1);
+    }
+    .box .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      opacity: 0;
+      transition: opacity 0.3s;
+      padding: 10px;
+    }
+    .box:hover .content,
+    .box.active .content {
+      opacity: 1;
+    }
+    .box p {
+      margin: 10px 0 0;
+      text-align: center;
+    }
+    .giant-photo {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+      height: 250px;
+      background: #000;
+      border: 2px solid #333;
+    }
+    .giant-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .giant-photo::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6); /* Black overlay */
+      z-index: 1;
+    }
+    .giant-photo .text {
+      position: absolute;
+      left: 20px;
+      z-index: 2;
+      color: #fff;
+    }
+    .giant-photo .text h2 {
+      margin: 0;
+      font-size: 24px;
+    }
+    .giant-photo .text p {
+      margin: 10px 0 0;
+      font-size: 16px;
+    }
+    .footer {
+      background: #444;
+      padding: 20px;
+      border-top: 2px solid #333;
+    }
+    .footer .reach-me {
+      text-align: left;
+      margin-bottom: 10px;
+    }
+    .footer .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .footer a {
+      text-decoration: none;
+    }
+    .footer img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+    .footer img:hover {
+      transform: scale(1.1);
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const boxes = document.querySelectorAll('.box');
+
+      boxes.forEach((box, index) => {
+        setTimeout(() => {
+          box.style.opacity = '1';
+          box.style.transform = 'translateY(0)';
+        }, index * 200);
+      });
+
+      boxes.forEach(box => {
+        box.addEventListener('click', () => {
+          if (window.innerWidth <= 768) {
+            boxes.forEach(b => b.classList.remove('active'));
+            box.classList.toggle('active');
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <header class="header">
+    <img src="https://upload-os-bbs.hoyolab.com/upload/2024/07/01/305113520/86d834e9302d849ff9bd7bb4e3596c77_6091125569272968123.jpg?x-oss-process=image%2Fresize%2Cs_1000%2Fauto-orient%2C0%2Finterlace%2C1%2Fformat%2Cwebp%2Fquality%2Cq_70" alt="Logo" class="logo">
+    <h1>Hecklers Shithole</h1>
+  </header>
+  <section class="giant-photo">
+    <img src="https://images8.alphacoders.com/135/1353723.jpeg" alt="Giant Photo Placeholder">
+    <div class="text">
+      <h2>Hi!</h2>
+      <p>This really doesn't have much functions, But hey :3</p>
+    </div>
+  </section>
+  <section class="compressed-boxes">
+    <div class="box">
+      <img src="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/11/honkai-star-rail-5-star-herta-weapon-begging-for-a-crossover.jpg" alt="Photo 1">
+      <div class="content">
+        <p>I'll be quite honest with you, She can insult and demean me and I'll bust a nut or two.</p>
+      </div>
+    </div>
+    <div class="box">
+      <img src="https://i.ytimg.com/vi/iRQHZBbYhNg/maxresdefault.jpg" alt="Photo 2">
+      <div class="content">
+        <p>WA2000/Macciato from GFL 2. I married her today January 1st of the year 2025. <br><br> My Tsun Tsun wife.</p>
+      </div>
+    </div>
+    <div class="box">
+      <img src="https://www.pockettactics.com/wp-content/sites/pockettactics/2024/12/genshin-impact-skins-.jpg" alt="Photo 3">
+      <div class="content">
+        <p>Do I really have to explain as to why Hu tao is here? <br><br> How can you not love her.</p>
+      </div>
+    </div>
+    <div class="box">
+      <img src="https://i.ytimg.com/vi/7TRyQ73J1wg/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGGUgTyg_MA8=&rs=AOn4CLBt8Ms3SKu1RNpQGcfIOPoSxNmSXA" alt="Photo 4">
+      <div class="content">
+        <p>HURAHH WHAT THE FUCK IS A KILOMETER</p>
+      </div>
+    </div>
+    <div class="box">
+      <img src="https://i.pinimg.com/736x/71/16/fa/7116fa69bc9eeb335d54b3585e146385.jpg" alt="Photo 5">
+      <div class="content">
+        <p>Look man, All I can say is that she's really flexible.<br><br> Especially her nec-</p>
+      </div>
+    </div>
+    <div class="box">
+      <img src="https://preview.redd.it/new-official-firefly-illustration-on-bilibili-v0-afbtuqm86b7d1.png?auto=webp&s=5c8e5f94497be1338bf8b56ebb14ca41f7a1e705" alt="Photo 6">
+      <div class="content">
+        <p>Cannn Wife is my Cannon life, I am willing to spend the rest of my life with firefly as my Wife.</p>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="reach-me">
+      <h3>Reach me!</h3>
+      <p>Click these icons to contact me!</p>
+      
+    <div class="social-links">
+      <a href="https://x.com/TaihoHeckler" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter">
+      </a>
+      <a href="https://www.instagram.com/h416a619016/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+      </a>
+      <a href="https://github.com/Amagiisenki" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub">
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
